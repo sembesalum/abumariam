@@ -68,40 +68,57 @@
 
     <!-- Navbar & Hero Start -->
 <div class="container-fluid position-relative p-0">
-    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-        <a href="" class="navbar-brand p-0">                
-            <!-- <img src="img/logo.png" alt="Logo"> -->
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="fa fa-bars"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto py-0">
-                <a href="{% url 'index' %}" class="nav-item nav-link">Home</a>
-                <a href="{% url 'zanzibar' %}" class="nav-item nav-link active">Zanzibar</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-item nav-link" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tour and Trips</a>
-                <div class="dropdown-menu m-0">
-                    <a href="{% url 'full_day' %}" class="dropdown-item">Full-day tour</a>
-                    <a href="{% url 'half_day' %}" class="dropdown-item">Half-day tour</a>                        
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="" class="navbar-brand p-0">                
+                <!-- <img height="100%" width="0px" src="{% static 'img/logo.png' %}" > -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="{% url 'index' %}" class="nav-item nav-link">Home</a>
+                    <a href="{% url 'zanzibar' %}" class="nav-item nav-link active">Zanzibar Island</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-item nav-link class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tour and Trips</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{% url 'full_day' %}" class="dropdown-item">Full-day tour</a>
+                        <a href="{% url 'half_day' %}" class="dropdown-item">Half-day tour</a>
+                        <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>                        
+                    </div>
                 </div>
-            </div>            
-            <a href="{% url 'holiday_ideas' %}" class="nav-item nav-link">Holiday Ideas</a>  
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">New Updates</a>
-                <div class="dropdown-menu m-0">
-                    <a href="{% url 'videos' %}" class="dropdown-item">Posted Videos</a>
-                    <a href="{% url 'images' %}" class="dropdown-item">Posted Photos</a>
-                    <a href="{% url 'leisure_activities' %}" class="dropdown-item">leisure Activities</a>                        
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tanzania mainland</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{% url 'holiday_ideas' %}" class="dropdown-item">Holiday Ideas</a>                        
+                        <a href="{% url 'leisure_activities' %}" class="dropdown-item">Institution tour and Trips</a>                        
+                        <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>
+                    </div>
                 </div>
+                <!-- <a href="{% url 'holiday_ideas' %}" class="nav-item nav-link">Holiday Ideas</a>   -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">New Updates</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{% url 'videos' %}" class="dropdown-item">Posted Videos</a>
+                        <a href="{% url 'images' %}" class="dropdown-item">Posted Photos</a>
+                        <a href="{% url 'leisure_activities' %}" class="dropdown-item">leisure Activities</a>                        
+                    </div>
+                </div>
+                    <!-- <a href="destination.html" class="nav-item nav-link">Images</a>                    
+                    <a href="booking.html" class="nav-item nav-link">Videos</a> -->
+                    <a href="{% url 'contact' %}" class="nav-item nav-link">Donation</a>
+                    <a href="{% url 'not_found' %}" class="nav-item nav-link">FAQ</a>
+                </div>
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="btn btn-primary rounded-pill py-2 px-4">Logout</a>
+                {% else %}
+                <a href="{% url 'login' %}" class="btn btn-primary rounded-pill py-2 px-4">Login</a>
+                {% endif %}
             </div>
-                <!-- <a href="destination.html" class="nav-item nav-link">Images</a>                    
-                <a href="booking.html" class="nav-item nav-link">Videos</a> -->
-                <a href="{% url 'contact' %}" class="nav-item nav-link">Donation</a>
-            </div>
-            <a href="" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
-        </div>
-    </nav>
+        </nav>
+    
+    <!-- Navbar -->
 
     <div class="container-fluid bg-primary py-5 mb-5 hero-header">
         <div class="container py-5">
@@ -134,10 +151,10 @@
 
                     <div class="image-slideshow">
                         <div class="image fade">
-                        <img height="553px" width="548px" src="{%static 'img/about.jpg' %}" alt="Mountain Top">
+                        <img height="553px" width="548px" src="{%static 'img/Zanzibar-Island5.jpg' %}" alt="Mountain Top">
                         </div>  
                         <div class="image fade">
-                            <img height="553px" width="548px" src="{%static 'img/about2.jpg' %}" alt="Mountain Top">
+                            <img height="553px" width="548px" src="{%static 'img/Zanzibar-Island.jpg' %}" alt="Mountain Top">
                         </div>                                                     
                       <br/>                                 
         </div>
@@ -153,24 +170,24 @@
                         <div class="row g-3">
                             <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
                                 <a class="position-relative d-block overflow-hidden" href="">
-                                    <img class="img-fluid" src="{%static 'img/destination-1.jpg' %}" alt="">            
+                                    <img class="img-fluid" src="{%static 'img/package-3.jpg' %}" alt="">            
                                 </a>
                             </div>
                             <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
                                 <a class="position-relative d-block overflow-hidden" href="">
-                                    <img class="img-fluid" src="{%static 'img/destination-2.jpg' %}" alt="">                                
+                                    <img class="img-fluid" src="{%static 'img/stone.jpg' %}" alt="">                                
                                 </a>
                             </div>
                             <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
                                 <a class="position-relative d-block overflow-hidden" href="">
-                                    <img class="img-fluid" src="{%static 'img/destination-3.jpg' %}" alt="">                                
+                                    <img class="img-fluid" src="{%static 'img/bird.jpg' %}" alt="">                                
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
                         <a class="position-relative d-block h-100 overflow-hidden" href="">
-                            <img class="img-fluid position-absolute w-100 h-100" src="{%static 'img/destination-4.jpg' %}" alt="" style="object-fit: cover;">                        
+                            <img class="img-fluid position-absolute w-100 h-100" src="{%static 'img/stone-town.jpg' %}" alt="" style="object-fit: cover;">                        
                         </a>
                     </div>
                 </div>
@@ -187,24 +204,24 @@
                     <div class="row g-3">
                         <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
                             <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="{%static 'img/destination-1.jpg' %}" alt="">            
+                                <img height="200px" class="img-fluid" src="{%static 'img/soko.jpg' %}" alt="">            
                             </a>
                         </div>
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
                             <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="{%static 'img/destination-2.jpg' %}" alt="">                                
+                                <img class="img-fluid" src="{%static 'img/food1.jpg' %}" alt="">                                
                             </a>
                         </div>
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
                             <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="{%static 'img/destination-3.jpg' %}" alt="">                                
+                                <img class="img-fluid" src="{%static 'img/turtle.jpg' %}" alt="">                                
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
                     <a class="position-relative d-block h-100 overflow-hidden" href="">
-                        <img class="img-fluid position-absolute w-100 h-100" src="{%static 'img/destination-4.jpg' %}" alt="" style="object-fit: cover;">                        
+                        <img class="img-fluid position-absolute w-100 h-100" src="{%static 'img/bg-hero.jpg' %}" alt="" style="object-fit: cover;">                        
                     </a>
                 </div>
             </div>
@@ -219,24 +236,24 @@
                         <div class="row g-3">
                             <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
                                 <a class="position-relative d-block overflow-hidden" href="">
-                                    <img class="img-fluid" src="{%static 'img/destination-1.jpg' %}" alt="">            
+                                    <img class="img-fluid" src="{%static 'img/Zanzibar-Island3.jpg' %}" alt="">            
                                 </a>
                             </div>
                             <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
                                 <a class="position-relative d-block overflow-hidden" href="">
-                                    <img class="img-fluid" src="{%static 'img/destination-2.jpg' %}" alt="">                                
+                                    <img class="img-fluid" src="{%static 'img/island1.jpg' %}" alt="">                                
                                 </a>
                             </div>
                             <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
                                 <a class="position-relative d-block overflow-hidden" href="">
-                                    <img class="img-fluid" src="{%static 'img/destination-3.jpg' %}" alt="">                                
+                                    <img class="img-fluid" src="{%static 'img/beach.jpg' %}" alt="">                                
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
                         <a class="position-relative d-block h-100 overflow-hidden" href="">
-                            <img class="img-fluid position-absolute w-100 h-100" src="{%static 'img/destination-4.jpg' %}" alt="" style="object-fit: cover;">                        
+                            <img class="img-fluid position-absolute w-100 h-100" src="{%static 'img/beach2.jpg' %}" alt="" style="object-fit: cover;">                        
                         </a>
                     </div>
                 </div>
@@ -252,24 +269,24 @@
                     <div class="row g-3">
                         <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
                             <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="{%static 'img/destination-1.jpg' %}" alt="">            
+                                <img class="img-fluid" src="{%static 'img/prison.jpg' %}" alt="">            
                             </a>
                         </div>
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
                             <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="{%static 'img/destination-2.jpg' %}" alt="">                                
+                                <img class="img-fluid" src="{%static 'img/package-1.jpg' %}" alt="">                                
                             </a>
                         </div>
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
                             <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="{%static 'img/destination-3.jpg' %}" alt="">                                
+                                <img class="img-fluid" src="{%static 'img/soko.jpg' %}" alt="">                                
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
                     <a class="position-relative d-block h-100 overflow-hidden" href="">
-                        <img class="img-fluid position-absolute w-100 h-100" src="{%static 'img/destination-4.jpg' %}" alt="" style="object-fit: cover;">                        
+                        <img class="img-fluid position-absolute w-100 h-100" src="{%static 'img/Zanzibar-Island4.jpg' %}" alt="" style="object-fit: cover;">                        
                     </a>
                 </div>
             </div>
@@ -277,95 +294,17 @@
                 <br/> <br/> <br/> 
 
             <h4> Peoples, religion and culture </h4>
-            <p class="mb-4">Zanzibar inhabited by people of different origins and ethnic mixture of many different backgrounds including Arabs, mainlanders, Shiraz’s and Asians (Indians). In term of religion Zanzibar is the home of Muslim about over 90% Muslim (mainly Sunni but including many minorities as well). There are also different Christians, Hindus and other, smaller religions represented on the island. Due to that, Zanzibar dominated by Muslim culture famous known as Swahili culture in east Africa coast.</p>    
-                <img src="" alt="religion and culture">
-                <div class="row g-3">
-                    <div class="col-lg-7 col-md-6">
-                        <div class="row g-3">
-                            <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                                <a class="position-relative d-block overflow-hidden" href="">
-                                    <img class="img-fluid" src="{%static 'img/destination-1.jpg' %}" alt="">            
-                                </a>
-                            </div>
-                            <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                                <a class="position-relative d-block overflow-hidden" href="">
-                                    <img class="img-fluid" src="{%static 'img/destination-2.jpg' %}" alt="">                                
-                                </a>
-                            </div>
-                            <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                                <a class="position-relative d-block overflow-hidden" href="">
-                                    <img class="img-fluid" src="{%static 'img/destination-3.jpg' %}" alt="">                                
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                        <a class="position-relative d-block h-100 overflow-hidden" href="">
-                            <img class="img-fluid position-absolute w-100 h-100" src="{%static 'img/destination-4.jpg' %}" alt="" style="object-fit: cover;">                        
-                        </a>
-                    </div>
-                </div>
+            <p class="mb-4">Zanzibar inhabited by people of different origins and ethnic mixture of many different backgrounds including Arabs, mainlanders, Shiraz’s and Asians (Indians). In term of religion Zanzibar is the home of Muslim about over 90% Muslim (mainly Sunni but including many minorities as well). There are also different Christians, Hindus and other, smaller religions represented on the island. Due to that, Zanzibar dominated by Muslim culture famous known as Swahili culture in east Africa coast.</p>               
                 <br/> <br/> <br/>
 
             <h4> Climate </h4>
             <p class="mb-4">Climate in Zanzibar is warm all year round. Yet, strong sea breezes often cool the heat of summer (November to March). As a result, this time of the year the time of the northeast monsoon, particularly on the north and east coasts. Rains occur in November usually with brief showers. Longer rains occur from March to May in association with the southwest monsoon.</p>    
-                <img src="" alt="climate">
-                <div class="row g-3">
-                    <div class="col-lg-7 col-md-6">
-                        <div class="row g-3">
-                            <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                                <a class="position-relative d-block overflow-hidden" href="">
-                                    <img class="img-fluid" src="{%static 'img/destination-1.jpg' %}" alt="">            
-                                </a>
-                            </div>
-                            <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                                <a class="position-relative d-block overflow-hidden" href="">
-                                    <img class="img-fluid" src="{%static 'img/destination-2.jpg' %}" alt="">                                
-                                </a>
-                            </div>
-                            <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                                <a class="position-relative d-block overflow-hidden" href="">
-                                    <img class="img-fluid" src="{%static 'img/destination-3.jpg' %}" alt="">                                
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                        <a class="position-relative d-block h-100 overflow-hidden" href="">
-                            <img class="img-fluid position-absolute w-100 h-100" src="{%static 'img/destination-4.jpg' %}" alt="" style="object-fit: cover;">                        
-                        </a>
-                    </div>
-                </div>
+               
                 <br/> <br/> <br/>
 
             <h4> Language </h4>
             <p class="mb-4">Swahili, is the national language, is a composite of several Bantu dialects and Arabic that originated along the East African coast and on the island of Zanzibar. But most interesting to Zanzibar island is that it is the place that you can find a lot of language spoken by local tour guide expert like English, France, Portuguese, Russian, Italian, Poland, Serbia, Spanish, Germany, Chinese and among other. So saying Zanzibar it is the only destination in world that a visitor can choose guide to his or her own language.</p>    
-            <div class="row g-3">
-                <div class="col-lg-7 col-md-6">
-                    <div class="row g-3">
-                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="{%static 'img/destination-1.jpg' %}" alt="">            
-                            </a>
-                        </div>
-                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="{%static 'img/destination-2.jpg' %}" alt="">                                
-                            </a>
-                        </div>
-                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="{%static 'img/destination-3.jpg' %}" alt="">                                
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                    <a class="position-relative d-block h-100 overflow-hidden" href="">
-                        <img class="img-fluid position-absolute w-100 h-100" src="{%static 'img/destination-4.jpg' %}" alt="" style="object-fit: cover;">                        
-                    </a>
-                </div>
-            </div>
+            
                 
     </div>
     <!-- Charity End -->

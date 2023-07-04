@@ -68,40 +68,57 @@
 
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0">
-        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-            <a href="" class="navbar-brand p-0">                
-                <!-- <img src="img/logo.png" alt="Logo"> -->
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto py-0">
-                    <a href="{% url 'index' %}" class="nav-item nav-link">Home</a>
-                    <a href="{% url 'zanzibar' %}" class="nav-item nav-link">Zanzibar</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-item nav-link active" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tour and Trips</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="{% url 'full_day' %}" class="dropdown-item">Full-day tour</a>
-                        <a href="{% url 'half_day' %}" class="dropdown-item">Half-day tour</a>                        
-                    </div>
-                </div>
-                <a href="{% url 'holiday_ideas' %}" class="nav-item nav-link">Holiday Ideas</a>  
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">New Updates</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="{% url 'videos' %}" class="dropdown-item">Posted Videos</a>
-                        <a href="{% url 'images' %}" class="dropdown-item">Posted Photos</a>
-                        <a href="{% url 'leisure_activities' %}" class="dropdown-item">leisure Activities</a>                        
-                    </div>
-                </div>
-                    <!-- <a href="destination.html" class="nav-item nav-link">Images</a>                    
-                    <a href="booking.html" class="nav-item nav-link">Videos</a> -->
-                    <a href="{% url 'contact' %}" class="nav-item nav-link">Donation</a>
-                </div>
-                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
-            </div>
-        </nav>
+                    <!-- navbar -->
+                    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                        <a href="" class="navbar-brand p-0">                
+                            <!-- <img height="100%" width="0px" src="{% static 'img/logo.png' %}" > -->
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                            <span class="fa fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <div class="navbar-nav ms-auto py-0">
+                                <a href="{% url 'index' %}" class="nav-item nav-link">Home</a>
+                                <a href="{% url 'zanzibar' %}" class="nav-item nav-link">Zanzibar Island</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-item nav-link active class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tour and Trips</a>
+                                <div class="dropdown-menu m-0">
+                                    <a href="{% url 'full_day' %}" class="dropdown-item">Full-day tour</a>
+                                    <a href="{% url 'half_day' %}" class="dropdown-item">Half-day tour</a>
+                                    <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>                        
+                                </div>
+                            </div>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tanzania mainland</a>
+                                <div class="dropdown-menu m-0">
+                                    <a href="{% url 'holiday_ideas' %}" class="dropdown-item">Holiday Ideas</a>                        
+                                    <a href="{% url 'leisure_activities' %}" class="dropdown-item">Institution tour and Trips</a>                        
+                                    <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>
+                                </div>
+                            </div>
+                            <!-- <a href="{% url 'holiday_ideas' %}" class="nav-item nav-link">Holiday Ideas</a>   -->
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">New Updates</a>
+                                <div class="dropdown-menu m-0">
+                                    <a href="{% url 'videos' %}" class="dropdown-item">Posted Videos</a>
+                                    <a href="{% url 'images' %}" class="dropdown-item">Posted Photos</a>
+                                    <a href="{% url 'leisure_activities' %}" class="dropdown-item">leisure Activities</a>                        
+                                </div>
+                            </div>
+                                <!-- <a href="destination.html" class="nav-item nav-link">Images</a>                    
+                                <a href="booking.html" class="nav-item nav-link">Videos</a> -->
+                                <a href="{% url 'contact' %}" class="nav-item nav-link">Donation</a>
+                                <a href="{% url 'not_found' %}" class="nav-item nav-link">FAQ</a>
+                            </div>
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'logout' %}" class="btn btn-primary rounded-pill py-2 px-4">Logout</a>
+                            {% else %}
+                            <a href="{% url 'login' %}" class="btn btn-primary rounded-pill py-2 px-4">Login</a>
+                            {% endif %}
+                        </div>
+                    </nav>
+            
+                <!-- Navbar -->
 
         <div class="container-fluid bg-primary py-5 mb-5 hero-header">
             <div class="container py-5">
@@ -139,7 +156,7 @@
 
                     <!-- class="image fade" -->
                     <div> 
-                    <img src="{% static 'img/about.jpg' %}" alt="Mountain Top">
+                    <img src="{% static 'img/package-1.jpg' %}" alt="Mountain Top">
                     </div>                    
                   </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">                    
@@ -180,7 +197,7 @@
                     <br>                                                
                     </div>
                     <p class="mb-4">This tour will take almost 2hrs/3hrs with short walking Safari together with our local expert tour guide. </p>                                        
-                <a class="btn btn-primary py-3 px-5 mt-2" href="about.html">Book Here</a>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="{% url 'book_form' %}">Book Here</a>
             </div>                                          
             </div>
         </div>
@@ -198,7 +215,7 @@
 
                     <!-- class="image fade" -->
                     <div> 
-                    <img src="{% static 'img/about.jpg' %}" alt="Mountain Top">
+                    <img src="{% static 'img/package-3.jpg' %}" alt="Mountain Top">
                     </div>                    
                   </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">                    
@@ -242,7 +259,7 @@
                     <br>                                                
                     </div>
                     <p class="mb-4">This tour will take almost 2hrs/3hrs with short walking Safari together with our local expert tour guide. </p>                                        
-                <a class="btn btn-primary py-3 px-5 mt-2" href="about.html">Book Here</a>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="{% url 'book_form' %}">Book Here</a>
             </div>                                          
             </div>
         </div>
@@ -260,7 +277,7 @@
 
                     <!-- class="image fade" -->
                     <div> 
-                    <img src="{% static 'img/about.jpg' %}" alt="Mountain Top">
+                    <img src="{% static 'img/stone-town.jpg' %}" alt="Mountain Top">
                     </div>                    
                   </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">                    
@@ -298,7 +315,7 @@
                 <br>                                                
                 </div>
                 <p class="mb-4">This tour will take almost 2hrs/3hrs with short walking Safari together with our local expert tour guide. </p>                                        
-            <a class="btn btn-primary py-3 px-5 mt-2" href="about.html">Book Here</a>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="{% url 'book_form' %}">Book Here</a>
         </div>                                          
         </div>
     </div>
@@ -316,7 +333,7 @@
 
                     <!-- class="image fade" -->
                     <div> 
-                    <img src="{% static 'img/about.jpg' %}" alt="Mountain Top">
+                    <img src="{% static 'img/bg-hero.jpg' %}" alt="Mountain Top">
                     </div>                    
                   </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">                    
@@ -362,7 +379,7 @@
                 <br>                                                  
                 </div>
                 <p class="mb-4">This tour will take almost 2hrs/3hrs with short walking Safari together with our local expert tour guide. </p>                                        
-            <a class="btn btn-primary py-3 px-5 mt-2" href="about.html">Book Here</a>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="{% url 'book_form' %}">Book Here</a>
         </div>                                          
         </div>
     </div>
@@ -381,7 +398,7 @@
 
                     <!-- class="image fade" -->
                     <div> 
-                    <img src="{% static 'img/about.jpg' %}" alt="Mountain Top">
+                    <img src="{% static 'img/wild.jpg' %}" alt="Mountain Top">
                     </div>                    
                   </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">                    
@@ -415,7 +432,7 @@
                 <br>                                                  
                 </div>
                 <p class="mb-4">This tour will take almost 2hrs/3hrs with short walking Safari together with our local expert tour guide. </p>                                        
-            <a class="btn btn-primary py-3 px-5 mt-2" href="about.html">Book Here</a>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="{% url 'book_form' %}">Book Here</a>
         </div>                                          
         </div>
     </div>
@@ -433,7 +450,7 @@
 
                     <!-- class="image fade" -->
                     <div> 
-                    <img src="{% static 'img/about.jpg' %}" alt="Mountain Top">
+                    <img src="{% static 'img/beach2.jpg' %}" alt="Mountain Top">
                     </div>                    
                   </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">                    
@@ -460,7 +477,7 @@
                 <br>                                                  
                 </div>
                 <p class="mb-4">This tour will take almost 2hrs/3hrs with short walking Safari together with our local expert tour guide. </p>                                        
-            <a class="btn btn-primary py-3 px-5 mt-2" href="about.html">Book Here</a>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="{% url 'book_form' %}">Book Here</a>
         </div>                                          
         </div>
     </div>
@@ -479,7 +496,7 @@
 
                     <!-- class="image fade" -->
                     <div> 
-                    <img src="{% static 'img/about.jpg' %}" alt="Mountain Top">
+                    <img src="{% static 'img/turtle.jpg' %}" alt="Mountain Top">
                     </div>                    
                   </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">                    
@@ -488,7 +505,7 @@
                    <p class="mb-4"><p class="mb-4"> There is no need to worry; swimming with sea turtles is safe. They are friendly, not harmful animals to humans 
                   </p>                            
                             <p class="mb-4">This tour will take almost 2hrs/3hrs with short walking Safari together with our local expert tour guide. </p>                                        
-                        <a class="btn btn-primary py-3 px-5 mt-2" href="about.html">Book Here</a>
+                            <a class="btn btn-primary py-3 px-5 mt-2" href="{% url 'book_form' %}">Book Here</a>
                                         
                     </div>
                 </div>                          
@@ -549,8 +566,8 @@
                                         <label for="message">Special Request</label>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <button class="btn btn-outline-light w-100 py-3" type="submit">Book Now</button>
+                                <div class="d-flex justify-content-center mb-2">                                    
+                                    <a href="{% url 'book_form' %}" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Book Now</a>
                                 </div>
                             </div>
                         </form>
@@ -581,8 +598,9 @@
                             <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
+                            <h5 class="mb-0">Majuto Mlowa</h5>
+                            <small>English and Poland</small>
+                            <small>Cultural Boma Tour</small>                            
                         </div>
                     </div>
                 </div>
@@ -597,8 +615,9 @@
                             <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
+                            <h5 class="mb-0">Oliver Gully</h5>
+                            <small>English and Poland</small>
+                            <small>Zanzibar safari & Study</small>
                         </div>
                     </div>
                 </div>
@@ -613,12 +632,13 @@
                             <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
+                            <h5 class="mb-0">Emmanuel Zabroni</h5>
+                            <small>English and German</small>
+                            <small>Zanzibar safari & Study</small>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                <!-- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item">
                         <div class="overflow-hidden">
                             <img class="img-fluid" src="{% static 'img/team-4.jpg' %}" alt="">
@@ -633,7 +653,7 @@
                             <small>Designation</small>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

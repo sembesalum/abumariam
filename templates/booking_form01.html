@@ -1,0 +1,322 @@
+ {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>AbumariamTourAgency</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css" rel="stylesheet' %}">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookingForm</title>
+</head>
+<body>
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="booking p-5">
+                <div class="row g-5 align-items-center">
+                    <div class="col-md-6 text-white">
+                        <h6 class="text-white text-uppercase">Booking</h6>
+                        <h1 class="text-white mb-4">Book for tour</h1>
+                        <p class="mb-4">This tour product give the chance tourists or any other client who visit Zanzibar Island and need escort for shopping or travelling at Zanzibar Island. Therefore, with abumariam Safari Island prepare good environment for a client to book for a someone who will escort you in Zanzibar Island based on your own language.</p>
+                        <p class="mb-4">It is important to note that this guiding services will be done with the language choice of the client for example if client is Russian will get guide of Russian language, Germany get guide of Germany language, France get guide of France language, Italian get guide from Italian language and among others.
+                                        Therefore, every client will get guide to depend with his or her interests and language they choose to use in their journey of experience.</p>
+                        <a class="btn btn-outline-light py-3 px-5 mt-2" href="">Read More</a>
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="text-white mb-4">Particulars</h1>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+         <div class="row g-3">
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="fullname" placeholder="Full Name" required>
+                    <label for="name"  value="">Full Name</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" name="country" id="country" placeholder="Country" required>
+                    <label for="name" >Country</label>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="nationality" placeholder="Nationality" required>
+                    <label for="name" >Nationality</label>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="home" placeholder="Home" required>
+                    <label for="name" >Home</label>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="city" placeholder="City" required>
+                    <label for="name">City</label>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="passport_no" placeholder="Identity number/passport number" required>
+                    <label for="name">Identity number/passport number</label>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="marital_status" placeholder="Martial Status" required>
+                    <label for="name">Martial Status</label>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="sex" placeholder="Sex" required>
+                    <label for="name">Sex</label>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="number" class="form-control bg-transparent" id="name" name="phone_no" placeholder="Phone number" required>
+                    <label for="name">Phone number</label>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="email" placeholder="Type of client" required>
+                    <label for="name">Email</label>
+                </div>
+            </div>                         
+           
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="type_of_client" placeholder="E.g. single, double, families or group, organization, students, businessmen, teachers, lovers">
+                    <label for="name">Type of client</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="number" class="form-control bg-transparent" id="name" name="number_of_client" placeholder="E.g. 1, 2, 3, 4, 5">
+                    <label for="name">Number of client</label>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="status_of_client" placeholder="E.g. teachers, students, VIP, businessmen, employed, unemployed, special group, worker, family’s">
+                    <label for="name">Status of client</label>
+                </div>
+            </div>
+
+            <!-- <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="tour_program" placeholder="e.g. Zanzibar island, Tanzania mainland">
+                    <label for="name">Tour program</label>
+                </div>
+            </div> -->
+
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="type_of_tour_trip" placeholder="e.g. full-day tour, half-day tour, one night tour">
+                    <label for="name">Type of tour trip</label>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="holiday_idea" placeholder="e.g. spice tour, game viewing, animals watching, Safari to parliament, birds watching">
+                    <label for="name">Type of product/holiday idea</label>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="client_Age_group" placeholder="E.g. 0-18, 18-20, 20-30, 30-above, both range and above">
+                    <label for="name">Client Age group </label>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="include_in_tour" placeholder="E.g. Transport cost (car/air/boat/train), tour guide cost, food and drinks, charity program, swimming, playing football, dancing competition, hotels, shopping">
+                    <label for="name">What to include in your tour </label>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="exclude_in_tour" placeholder="E.g. Transport cost (car/air/boat/train), tour guide cost, food and drinks, charity program, swimming, playing football, dancing competition, hotels, shopping">
+                    <label for="name">What to exclude in your  tour </label>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="meeting_point" placeholder="E.g. Transport cost (car/air/boat/train), tour guide cost, food and drinks, charity program, swimming, playing football, dancing competition, hotels, shopping">
+                    <label for="name">Meeting point (location)</label>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control bg-transparent" id="name" name="language" placeholder="E.g. Transport cost (car/air/boat/train), tour guide cost, food and drinks, charity program, swimming, playing football, dancing competition, hotels, shopping">
+                    <label for="name">Language to use</label>
+                </div>
+            </div>
+
+            <!-- <div class="col-md-6">
+                <div class="form-floating date" id="date3" data-target-input="nearest">
+                    <input type="text" class="form-control bg-transparent datetimepicker-input" id="datetime" name="time_confirmation" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                    <label for="datetime">Time Confirmation</label>
+                </div>
+            </div> -->
+
+            <div class="col-12">
+                <input type="submit" class="" placeholder="Book Now">
+            </div>
+        </div>
+
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Travel Guide</h6>
+                <h1 class="mb-5">Meet Our Guide</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/team-1.jpg' %}" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Majuto Mlowa</h5>
+                            <small>English and Poland</small>
+                            <small>Cultural Boma Tour</small>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/team-2.jpg' %}" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Oliver Gully</h5>
+                            <small>English and Poland</small>
+                            <small>Zanzibar safari & Study</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/team-3.jpg' %}" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Emmanuel Zabroni</h5>
+                            <small>English and German</small>
+                            <small>Zanzibar safari & Study</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/team-4.jpg' %}" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Full Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+   <!-- JavaScript Libraries -->
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+   <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+   <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+   <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+   <script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+   <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+   <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html> 

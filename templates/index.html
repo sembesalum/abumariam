@@ -65,12 +65,13 @@
     </div>
     <!-- Topbar End -->
 
-
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0">
+
+    <!-- navbar -->
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="" class="navbar-brand p-0">                
-                <!-- <img src="img/logo.png" alt="Logo"> -->
+                <!-- <img height="100%" width="0px" src="{% static 'img/logo.png' %}" > -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -78,15 +79,24 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="{% url 'index' %}" class="nav-item nav-link active">Home</a>
-                    <a href="{% url 'zanzibar' %}" class="nav-item nav-link">Zanzibar</a>
+                    <a href="{% url 'zanzibar' %}" class="nav-item nav-link">Zanzibar Island</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tour and Trips</a>
                     <div class="dropdown-menu m-0">
                         <a href="{% url 'full_day' %}" class="dropdown-item">Full-day tour</a>
-                        <a href="{% url 'half_day' %}" class="dropdown-item">Half-day tour</a>                        
+                        <a href="{% url 'half_day' %}" class="dropdown-item">Half-day tour</a>
+                        <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>                        
                     </div>
                 </div>
-                <a href="{% url 'holiday_ideas' %}" class="nav-item nav-link">Holiday Ideas</a>  
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tanzania mainland</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{% url 'holiday_ideas' %}" class="dropdown-item">Holiday Ideas</a>                        
+                        <a href="{% url 'leisure_activities' %}" class="dropdown-item">Institution tour and Trips</a>                        
+                        <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>
+                    </div>
+                </div>
+                <!-- <a href="{% url 'holiday_ideas' %}" class="nav-item nav-link">Holiday Ideas</a>   -->
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">New Updates</a>
                     <div class="dropdown-menu m-0">
@@ -98,6 +108,7 @@
                     <!-- <a href="destination.html" class="nav-item nav-link">Images</a>                    
                     <a href="booking.html" class="nav-item nav-link">Videos</a> -->
                     <a href="{% url 'contact' %}" class="nav-item nav-link">Donation</a>
+                    <a href="{% url 'not_found' %}" class="nav-item nav-link">FAQ</a>
                 </div>
                 {% if user.is_authenticated %}
                 <a href="{% url 'logout' %}" class="btn btn-primary rounded-pill py-2 px-4">Logout</a>
@@ -106,6 +117,8 @@
                 {% endif %}
             </div>
         </nav>
+
+    <!-- Navbar -->
 
         <div class="container-fluid bg-primary py-5 mb-5 hero-header">
             <div class="container py-5">
@@ -159,10 +172,19 @@
                 
                 <div class="col-lg-6 wow fadeInUp" class="image-slideshow">
                     <div class="image fade">
-                    <img height="553px" width="548px" src="{% static 'img/about2.jpg' %}" alt="Palm Trees">
+                    <img height="553px" width="548px" src="{% static 'img/27.jpg' %}" alt="Palm Trees">
                     </div>
                     <div class="image fade">
-                        <img height="553px" width="548px" src="{% static 'img/about.jpg' %}" alt="Palm Trees">
+                        <img height="553px" width="548px" src="{% static 'img/arusha2.jpg' %}" alt="Palm Trees">
+                    </div>
+                    <div class="image fade">
+                        <img height="553px" width="548px" src="{% static 'img/dodoma.jpg' %}" alt="Palm Trees">
+                    </div>
+                    <div class="image fade">
+                        <img height="553px" width="548px" src="{% static 'img/parliament1.jpg' %}" alt="Palm Trees">
+                    </div>
+                    <div class="image fade">
+                        <img height="553px" width="548px" src="{% static 'img/stone-town.jpg' %}" alt="Palm Trees">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -229,8 +251,9 @@
                             <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
+                            <h5 class="mb-0">Majuto Mlowa</h5>
+                            <small>English and Poland</small>
+                            <small>Cultural Boma Tour</small>                            
                         </div>
                     </div>
                 </div>
@@ -245,8 +268,9 @@
                             <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
+                            <h5 class="mb-0">Oliver Gully</h5>
+                            <small>English and Poland</small>
+                            <small>Zanzibar safari & Study</small>
                         </div>
                     </div>
                 </div>
@@ -261,12 +285,13 @@
                             <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
+                            <h5 class="mb-0">Emmanuel Zabroni</h5>
+                            <small>English and German</small>
+                            <small>Zanzibar safari & Study</small>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                <!-- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item">
                         <div class="overflow-hidden">
                             <img class="img-fluid" src="{% static 'img/team-4.jpg' %}" alt="">
@@ -281,7 +306,7 @@
                             <small>Designation</small>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

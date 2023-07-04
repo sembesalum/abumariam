@@ -78,40 +78,57 @@
 
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0">
-        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-            <a href="" class="navbar-brand p-0">                
-                <!-- <img src="img/logo.png" alt="Logo"> -->
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto py-0">
-                    <a href="{% url 'index' %}" class="nav-item nav-link">Home</a>
-                    <a href="{% url 'zanzibar' %}" class="nav-item nav-link">Zanzibar</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-item nav-link" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tour and Trips</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="{% url 'full_day' %}" class="dropdown-item">Full-day tour</a>
-                        <a href="{% url 'half_day' %}" class="dropdown-item">Half-day tour</a>                        
-                    </div>
+            <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="" class="navbar-brand p-0">                
+            <!-- <img height="100%" width="0px" src="{% static 'img/logo.png' %}" > -->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="{% url 'index' %}" class="nav-item nav-link">Home</a>
+                <a href="{% url 'zanzibar' %}" class="nav-item nav-link">Zanzibar Island</a>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-item nav-link class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tour and Trips</a>
+                <div class="dropdown-menu m-0">
+                    <a href="{% url 'full_day' %}" class="dropdown-item">Full-day tour</a>
+                    <a href="{% url 'half_day' %}" class="dropdown-item">Half-day tour</a>
+                    <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>                        
                 </div>
-                <a href="{% url 'holiday_ideas' %}" class="nav-item nav-link">Holiday Ideas</a>  
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-item nav-link active" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">New Updates</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="{% url 'videos' %}" class="dropdown-item">Posted Videos</a>
-                        <a href="{% url 'images' %}" class="dropdown-item">Posted Photos</a>
-                        <a href="{% url 'leisure_activities' %}" class="dropdown-item">leisure Activities</a>                        
-                    </div>
-                </div>
-                    <!-- <a href="destination.html" class="nav-item nav-link">Images</a>                    
-                    <a href="booking.html" class="nav-item nav-link">Videos</a> -->
-                    <a href="{% url 'contact' %}" class="nav-item nav-link">Donation</a>
-                </div>
-                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
             </div>
-        </nav>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tanzania mainland</a>
+                <div class="dropdown-menu m-0">
+                    <a href="{% url 'holiday_ideas' %}" class="dropdown-item">Holiday Ideas</a>                        
+                    <a href="{% url 'leisure_activities' %}" class="dropdown-item">Institution tour and Trips</a>                        
+                    <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>
+                </div>
+            </div>
+            <!-- <a href="{% url 'holiday_ideas' %}" class="nav-item nav-link">Holiday Ideas</a>   -->
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-item nav-link active class="nav-link dropdown-toggle" data-bs-toggle="dropdown">New Updates</a>
+                <div class="dropdown-menu m-0">
+                    <a href="{% url 'videos' %}" class="dropdown-item">Posted Videos</a>
+                    <a href="{% url 'images' %}" class="dropdown-item">Posted Photos</a>
+                    <a href="{% url 'leisure_activities' %}" class="dropdown-item">leisure Activities</a>                        
+                </div>
+            </div>
+                <!-- <a href="destination.html" class="nav-item nav-link">Images</a>                    
+                <a href="booking.html" class="nav-item nav-link">Videos</a> -->
+                <a href="{% url 'contact' %}" class="nav-item nav-link">Donation</a>
+                <a href="{% url 'not_found' %}" class="nav-item nav-link">FAQ</a>
+            </div>
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="btn btn-primary rounded-pill py-2 px-4">Logout</a>
+            {% else %}
+            <a href="{% url 'login' %}" class="btn btn-primary rounded-pill py-2 px-4">Login</a>
+            {% endif %}
+        </div>
+    </nav>
+
+<!-- Navbar -->
 
         <div class="container-fluid bg-primary py-5 mb-5 hero-header">
             <div class="container py-5">
