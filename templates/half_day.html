@@ -65,68 +65,81 @@
     </div>
     <!-- Topbar End -->
 
-
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0">
-                    <!-- navbar -->
-                    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                        <a href="" class="navbar-brand p-0">                
-                            <!-- <img height="100%" width="0px" src="{% static 'img/logo.png' %}" > -->
-                        </a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                            <span class="fa fa-bars"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarCollapse">
-                            <div class="navbar-nav ms-auto py-0">
-                                <a href="{% url 'index' %}" class="nav-item nav-link">Home</a>
-                                <a href="{% url 'zanzibar' %}" class="nav-item nav-link">Zanzibar Island</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-item nav-link active class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tour and Trips</a>
-                                <div class="dropdown-menu m-0">
-                                    <a href="{% url 'full_day' %}" class="dropdown-item">Full-day tour</a>
-                                    <a href="{% url 'half_day' %}" class="dropdown-item">Half-day tour</a>
-                                    <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>                        
-                                </div>
-                            </div>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tanzania mainland</a>
-                                <div class="dropdown-menu m-0">
-                                    <a href="{% url 'holiday_ideas' %}" class="dropdown-item">Holiday Ideas</a>                        
-                                    <a href="{% url 'leisure_activities' %}" class="dropdown-item">Institution tour and Trips</a>                        
-                                    <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>
-                                </div>
-                            </div>
-                            <!-- <a href="{% url 'holiday_ideas' %}" class="nav-item nav-link">Holiday Ideas</a>   -->
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">New Updates</a>
-                                <div class="dropdown-menu m-0">
-                                    <a href="{% url 'videos' %}" class="dropdown-item">Posted Videos</a>
-                                    <a href="{% url 'images' %}" class="dropdown-item">Posted Photos</a>
-                                    <a href="{% url 'leisure_activities' %}" class="dropdown-item">leisure Activities</a>                        
-                                </div>
-                            </div>
-                                <!-- <a href="destination.html" class="nav-item nav-link">Images</a>                    
-                                <a href="booking.html" class="nav-item nav-link">Videos</a> -->
-                                <a href="{% url 'contact' %}" class="nav-item nav-link">Donation</a>
-                                <a href="{% url 'not_found' %}" class="nav-item nav-link">FAQ</a>
-                            </div>
-                            {% if user.is_authenticated %}
-                            <a href="{% url 'logout' %}" class="btn btn-primary rounded-pill py-2 px-4">Logout</a>
-                            {% else %}
-                            <a href="{% url 'login' %}" class="btn btn-primary rounded-pill py-2 px-4">Login</a>
-                            {% endif %}
-                        </div>
-                    </nav>
+
+    <!-- navbar -->
+    
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" class="container-logo">
+        <div >
+            <!-- <a href=""  >                
+                <img  src="{% static 'img/logo-2.png' %}" >
+            </a> -->
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">                    
+                <a href="{% url 'index' %}" class="nav-item nav-link">Home</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">New Updates</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{% url 'videos' %}" class="dropdown-item">Posted Videos</a>
+                        <a href="{% url 'images' %}" class="dropdown-item">Posted Photos</a>
+                        <a href="{% url 'discovered_paradise' %}" class="dropdown-item">Discovered paradise</a>                        
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-item nav-link active" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Zanzibar Island</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{% url 'zanzibar' %}" class="dropdown-item">Understand Zanzibar</a>
+                        <a href="{% url 'full_day' %}" class="dropdown-item">Full-day tour</a>
+                        <a href="{% url 'half_day' %}" class="dropdown-item">Half-day tour</a>
+                        <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>                        
+                    </div>
+                </div> 
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tanzania mainland</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{% url 'holiday_ideas' %}" class="dropdown-item">Holiday Ideas</a>                                            
+                        <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>
+                        <a href="{% url 'book_form' %}" class="dropdown-item">Create other request</a>
+                    </div>
+                </div>                   
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Institution Tour and Trip</a>
+                <div class="dropdown-menu m-0">
+                    <a href="{% url 'leisure_activities' %}" class="dropdown-item">Study tour and excursion</a>
+                    <a href="{% url 'parliament' %}" class="dropdown-item">Parliament tour-URT</a>
+                    <a href="{% url 'book_form' %}" class="dropdown-item">Create other request</a>                        
+                </div>
+            </div>
             
-                <!-- Navbar -->
+            <!-- <a href="{% url 'holiday_ideas' %}" class="nav-item nav-link">Holiday Ideas</a>   -->
+           
+                <!-- <a href="destination.html" class="nav-item nav-link">Images</a>                    
+                <a href="booking.html" class="nav-item nav-link">Videos</a> -->
+                <a href="{% url 'not_found' %}" class="nav-item nav-link">Chat Bot</a>
+                <a href="{% url 'contact' %}" class="nav-item nav-link">Donation</a>
+                
+            </div>
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="btn btn-primary rounded-pill py-2 px-4">Logout</a>
+            {% else %}
+            <a href="{% url 'login' %}" class="btn btn-primary rounded-pill py-2 px-4">Login</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- Navbar -->
 
         <div class="container-fluid bg-primary py-5 mb-5 hero-header">
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown">Abumariam Safari Island,
-                            Experience The Magic Of Zanzibar </h1>
-                        <p class="fs-4 text-white mb-4 animated slideInDown">Tanzania is more than the house of wonders
+                        <h1 class="display-3 text-white mb-3 animated slideInDown">ABUMARIAM SAFARI ISLAND</h1>
+                        <p class="fs-4 text-white mb-4 animated slideInDown">Come, relax and enjoy Tanzania.
                             </p>
                         
                     </div>
@@ -516,7 +529,7 @@
 <!-- Main Content End -->
 
     <!-- Booking Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <!-- <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
             <div class="booking p-5">
                 <div class="row g-5 align-items-center">
@@ -575,7 +588,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Booking Start -->
 
 
@@ -712,10 +725,10 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Location, Zanzibar, Tanzania/p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Location, Zanzibar, Tanzania </p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+255 763 946 396</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>Abumariamsafariisland01@gmail.com</p>
-                    <div class="d-flex pt-2">
+                    <div class="d-flex pt-2">                    
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>

@@ -529,3 +529,9 @@ img {
     padding: 0 0 4px 23px;
     background: url(https://www.computerhope.com/cdn/arrow.png) no-repeat left center;
    }
+
+   .container-logo{
+       padding-left: 0;
+       margin: 20000px;
+       
+   }

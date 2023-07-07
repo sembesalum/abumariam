@@ -42,6 +42,15 @@ class Booking(models.Model):
         return self.fullname
 
 
+class Contact(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
+    subject = models.CharField(max_length=300)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name
+    
 # Create your models here.
 # class Opener(models.Model):
 #     title = models.CharField(max_length=200)

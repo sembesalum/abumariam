@@ -69,46 +69,60 @@
     <div class="container-fluid position-relative p-0">
 
     <!-- navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-            <a href="" class="navbar-brand p-0">                
-                <!-- <img height="100%" width="0px" src="{% static 'img/logo.png' %}" > -->
-            </a>
+    
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" class="container-logo">
+            <div >
+                <!-- <a href=""  >                
+                    <img  src="{% static 'img/logo-2.png' %}" >
+                </a> -->
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto py-0">
+                <div class="navbar-nav ms-auto py-0">                    
                     <a href="{% url 'index' %}" class="nav-item nav-link active">Home</a>
-                    <a href="{% url 'zanzibar' %}" class="nav-item nav-link">Zanzibar Island</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">New Updates</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="{% url 'videos' %}" class="dropdown-item">Posted Videos</a>
+                            <a href="{% url 'images' %}" class="dropdown-item">Posted Photos</a>
+                            <a href="{% url 'discovered_paradise' %}" class="dropdown-item">Discovered paradise</a>                        
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Zanzibar Island</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="{% url 'zanzibar' %}" class="dropdown-item">Understand Zanzibar</a>
+                            <a href="{% url 'full_day' %}" class="dropdown-item">Full-day tour</a>
+                            <a href="{% url 'half_day' %}" class="dropdown-item">Half-day tour</a>
+                            <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>                        
+                        </div>
+                    </div> 
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tanzania mainland</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="{% url 'holiday_ideas' %}" class="dropdown-item">Holiday Ideas</a>                                            
+                            <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>
+                            <a href="{% url 'book_form' %}" class="dropdown-item">Create other request</a>
+                        </div>
+                    </div>                   
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tour and Trips</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Institution Tour and Trip</a>
                     <div class="dropdown-menu m-0">
-                        <a href="{% url 'full_day' %}" class="dropdown-item">Full-day tour</a>
-                        <a href="{% url 'half_day' %}" class="dropdown-item">Half-day tour</a>
-                        <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>                        
+                        <a href="{% url 'leisure_activities' %}" class="dropdown-item">Study tour and excursion</a>
+                        <a href="{% url 'parliament' %}" class="dropdown-item">Parliament tour-URT</a>
+                        <a href="{% url 'book_form' %}" class="dropdown-item">Create other request</a>                        
                     </div>
                 </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tanzania mainland</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="{% url 'holiday_ideas' %}" class="dropdown-item">Holiday Ideas</a>                        
-                        <a href="{% url 'leisure_activities' %}" class="dropdown-item">Institution tour and Trips</a>                        
-                        <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>
-                    </div>
-                </div>
+                
                 <!-- <a href="{% url 'holiday_ideas' %}" class="nav-item nav-link">Holiday Ideas</a>   -->
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">New Updates</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="{% url 'videos' %}" class="dropdown-item">Posted Videos</a>
-                        <a href="{% url 'images' %}" class="dropdown-item">Posted Photos</a>
-                        <a href="{% url 'leisure_activities' %}" class="dropdown-item">leisure Activities</a>                        
-                    </div>
-                </div>
+               
                     <!-- <a href="destination.html" class="nav-item nav-link">Images</a>                    
                     <a href="booking.html" class="nav-item nav-link">Videos</a> -->
+                    <a href="{% url 'not_found' %}" class="nav-item nav-link">Chat Bot</a>
                     <a href="{% url 'contact' %}" class="nav-item nav-link">Donation</a>
-                    <a href="{% url 'not_found' %}" class="nav-item nav-link">FAQ</a>
+                    
                 </div>
                 {% if user.is_authenticated %}
                 <a href="{% url 'logout' %}" class="btn btn-primary rounded-pill py-2 px-4">Logout</a>
@@ -124,9 +138,8 @@
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown">Abumariam Safari Island,
-                            Experience The Magic Of Tanzania </h1>
-                        <p class="fs-4 text-white mb-4 animated slideInDown">Tanzania is more than the house of wonders
+                        <h1 class="display-3 text-white mb-3 animated slideInDown">ABUMARIAM SAFARI ISLAND</h1>
+                        <p class="fs-4 text-white mb-4 animated slideInDown">Come, relax and enjoy Tanzania.
                             </p>
                         
                     </div>
@@ -214,8 +227,7 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
-                <h1 class="mb-5">Our Products</h1>            
+                <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>          
             </div>
             <div id="content1">
                 <ul>
@@ -230,6 +242,88 @@
         </div>
     </div>
     <!-- Service End -->
+
+    <!-- Contact Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Contact Us</h6>
+                <h1 class="mb-5">Contact For Any Query</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <h5>Get In Touch</h5>
+                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos</p>
+                    <div class="d-flex align-items-center mb-4">                        
+                    </div>
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
+                            <i class="fa fa-phone-alt text-white"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="text-primary">Mobile</h5>
+                            <p class="mb-0">+255 763 946 396</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
+                            <i class="bi bi-whatsapp text-white"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="text-primary">WhatsApp</h5>
+                            <p class="mb-0">+255 655 530 695</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
+                            <i class="fa fa-envelope-open text-white"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="text-primary">Email</h5>
+                            <p class="mb-0">Abumariamsafariisland01@mail.com</p>
+                        </div>
+                    </div>                    
+                </div>
+                
+                <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" required>
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject" required>
+                                    <label for="subject">Subject</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea name="message" class="form-control" placeholder="Leave a message here" id="message" style="height: 100px" required></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
 
     
     <!-- Team Start -->
@@ -253,7 +347,10 @@
                         <div class="text-center p-4">
                             <h5 class="mb-0">Majuto Mlowa</h5>
                             <small>English and Poland</small>
-                            <small>Cultural Boma Tour</small>                            
+                            <br>
+                            <small>Cultural Boma Tour</small>
+                            <br>
+                            <small>0655530695 Whatsapp</small>
                         </div>
                     </div>
                 </div>
@@ -270,7 +367,10 @@
                         <div class="text-center p-4">
                             <h5 class="mb-0">Oliver Gully</h5>
                             <small>English and Poland</small>
+                            <br>
                             <small>Zanzibar safari & Study</small>
+                            <br>
+                            <small>0754095314 WhatsApp</small>
                         </div>
                     </div>
                 </div>
@@ -287,7 +387,10 @@
                         <div class="text-center p-4">
                             <h5 class="mb-0">Emmanuel Zabroni</h5>
                             <small>English and German</small>
+                            <br>
                             <small>Zanzibar safari & Study</small>
+                            <br>
+                            <small>0787 863 339</small>
                         </div>
                     </div>
                 </div>
@@ -348,6 +451,9 @@
             </div>
         </div>
     </div>
+</div>
+</div>
+</div>
     <!-- Testimonial End -->
         
 
@@ -365,7 +471,7 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-white mb-3">Contact</h4>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Location, Zanzibar, Tanzania/p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Location, Zanzibar, Tanzania </p>
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+255 763 946 396</p>
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>Abumariamsafariisland01@gmail.com</p>
                 <div class="d-flex pt-2">                    
@@ -413,7 +519,6 @@
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                     &copy; <a class="border-bottom" href="https://freewebsitecode.com">Your Site Name</a>, All Right Reserved.
-
                     
                     Designed By <a class="border-bottom" href="https://freewebsitecode.com">LevelsPro</a>
                 </div>

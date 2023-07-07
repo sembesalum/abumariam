@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from .models import Booking, TourSite
+from .models import Booking, TourSite, Contact
 
 # Create your views here.
 
@@ -96,6 +96,15 @@ def book_form2(request):
 
 
 def contact(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+        send_info = Contact.objects.create(name=name, email=email, subject=subject, message=message)
+        send_info.save()
+        
+        return redirect('contact')        
     return render(request, 'contact.html')
 
 def full_day(request):
@@ -121,3 +130,10 @@ def zanzibar(request):
 
 def not_found(request):
     return render(request, '404.html')
+
+def parliament(request):
+    return render(request, 'parliament.html')
+    
+def discovered_paradise(request):
+    return render(request, 'discovered_paradise.html')
+
