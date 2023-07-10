@@ -52,7 +52,7 @@ class BookingForm(ModelForm):
 
 # -------------------Tour Program------------
 
-            'tour_program': Select(attrs={
+            'tour_program': TextInput(attrs={
                 'class': "form-control",
                 'placeholder': 'Tour Program'
                 }),
