@@ -386,13 +386,5 @@ iframe {
   }
 }
 
-/*//////////////////////////////////////////////////////////////////
-[ Responsive ]*/
-@media (max-width: 576px) {
-  .login100-form {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
 
 
