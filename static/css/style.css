@@ -535,3 +535,7 @@ img {
        margin: 20000px;
        
    }
+
+   body{font-family:'Lato',sans-serif;background:#f1f1f1}
+a:link,a:visited{color:#444;text-decoration:none;transition:all .4s ease-in-out}h1{font-size:20px;text-align:center;display:block;background:linear-gradient(to right top,#6f96f3,#164ed2);padding:20px;color:#fff;border-radius:50px}.credit{background:#fff;position:relative;display:inline-block;padding:10px 20px;border:1px solid #ddd;border-radius:20px}
+

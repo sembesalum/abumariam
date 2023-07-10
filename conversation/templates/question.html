@@ -1,0 +1,10 @@
+
+<h1>Let chat with our customer in the following Tour Program </h1>
+
+{% for tour in tours %}
+
+<a href="{% url 'new_conversation' tour.id %}">
+    <h3>{{tour.name}}</h3>
+</a>
+
+{% endfor %}

@@ -30,6 +30,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/chat.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -106,7 +107,7 @@
                         <div class="dropdown-menu m-0">
                             <a href="{% url 'holiday_ideas' %}" class="dropdown-item">Holiday Ideas</a>                                            
                             <a href="{% url 'book_form' %}" class="dropdown-item">Book for tour guide</a>
-                            <a href="{% url 'book_form' %}" class="dropdown-item">Create other request</a>
+                            <a href="{% url 'request' %}" class="dropdown-item">Create other request</a>
                         </div>
                     </div>                   
                 <div class="nav-item dropdown">
@@ -114,7 +115,7 @@
                     <div class="dropdown-menu m-0">
                         <a href="{% url 'leisure_activities' %}" class="dropdown-item">Study tour and excursion</a>
                         <a href="{% url 'parliament' %}" class="dropdown-item">Parliament tour-URT</a>
-                        <a href="{% url 'book_form' %}" class="dropdown-item">Create other request</a>                        
+                        <a href="{% url 'request' %}" class="dropdown-item">Create other request</a>                        
                     </div>
                 </div>
                 
@@ -122,7 +123,7 @@
                
                     <!-- <a href="destination.html" class="nav-item nav-link">Images</a>                    
                     <a href="booking.html" class="nav-item nav-link">Videos</a> -->
-                    <a href="{% url 'not_found' %}" class="nav-item nav-link">Chat Bot</a>
+                    
                     <a href="{% url 'contact' %}" class="nav-item nav-link">Donation</a>
                     
                 </div>
@@ -638,6 +639,32 @@
 </div>
 </div>
     <!-- Testimonial End -->
+   <!-- CHAT -->
+<div id='whatsapp-chat' class='hide'>
+    <div class='header-chat'>
+    <div class='head-home'><h3>Hello!</h3>
+    <p>Click one of our representatives below to chat on WhatsApp</p></div>
+    <div class='get-new hide'><div id='get-label'></div><div id='get-nama'></div></div></div>
+    <div class='home-chat'>
+    <!-- Info Contact Start -->
+    <a class='informasi' href='javascript:void' title='Chat Whatsapp'>
+    <div class='info-avatar'><img src='https://2.bp.blogspot.com/-y6xNA_8TpFo/XXWzkdYk0MI/AAAAAAAAA5s/RCzTBJ_FbMwVt5AEZKekwQqiDNqdNQJjgCLcBGAs/s70/supportmale.png'/></div>
+    <div class='info-chat'>
+    <span class='chat-label'>Support</span>
+    <span class='chat-nama'>Customer Service</span>
+    </div><span class='my-number'>+255 763 946 396</span>
+    </a>
+    <!-- Info Contact End -->
+    
+    <div class='blanter-msg'>Call us to <b>+255 763 946 396</b> from <i>0:00hs a 24:00hs</i></div></div>
+    <div class='start-chat hide'>
+    <div class='first-msg'><span>Hello! What can I do for you?</span></div>
+    <div class='blanter-msg'><textarea id='chat-input' placeholder='Write a response' maxlength='120' row='1'></textarea>
+    <a href='javascript:void;' id='send-it'>Send</a></div></div>
+    <div id='get-number'></div><a class='close-chat' href='javascript:void'>×</a>
+    </div>
+    <a class='blantershow-chat' href='javascript:void' title='Show Chat'><i class='fab fa-whatsapp'></i>How can I help you?</a>
+        <!-- CHAT -->
         
 
     <!-- Footer Start -->
@@ -738,6 +765,7 @@
 
     <!-- Template Javascript -->
     <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/chat.js' %}"></script>
 </body>
 
 </html>

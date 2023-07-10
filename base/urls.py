@@ -15,6 +15,8 @@ urlpatterns = [
     path('contact/', views.contact, name="contact"),
     path('parliament/', views.parliament, name="parliament"),
     path('discovered_paradise/', views.discovered_paradise, name="discovered_paradise"),
+    path('confirmation/', views.confirmation, name="confirmation"),
+    path('request/', views.request, name="request"),
 
     
     path('book_form/', views.book_form, name="book_form"),

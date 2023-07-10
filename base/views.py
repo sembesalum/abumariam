@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from .models import Booking, TourSite, Contact
+from .forms import BookingForm
+from django.contrib.auth.decorators import login_required
+# from .models import Booking, TourSite, Contact
 
 # Create your views here.
 
@@ -52,47 +54,19 @@ def logout(request):
     auth.logout(request)
     return redirect('index')
 
+
 def book_form(request):
-    if request.method == 'POST':        
-        fullname = request.POST['fullname']
-        country = request.POST['country']
-        nationality = request.POST['nationality']
-        home = request.POST['home']
-        city = request.POST['city']
-        passport_no = request.POST['passport_no']
-        marital_status = request.POST['marital_status']
-        phone_no = request.POST['phone_no']
-        email = request.POST['email']
-        type_of_client = request.POST['type_of_client']
-        number_of_client = request.POST['number_of_client']
-        status_of_client = request.POST['status_of_client']        
-        # tour_program = request.POST['tour_program']
-        type_of_tour_trip = request.POST['type_of_tour_trip']
-        holiday_idea = request.POST['holiday_idea']
-        client_Age_group  = request.POST['client_Age_group']
-        include_in_tour = request.POST['include_in_tour']
-        exclude_in_tour = request.POST['exclude_in_tour']
-        meeting_point  = request.POST['meeting_point']
-        language  = request.POST['language']
-        # time_confirmation  = request.POST['time_confirmation']
-
-        booking1 = Booking.objects.create(fullname=fullname, country=country, nationality=nationality, home=home,city=city,
-        passport_no=passport_no, marital_status=marital_status, phone_no=phone_no, email=email, type_of_client=type_of_client,
-        number_of_client=number_of_client, status_of_client=status_of_client, type_of_tour_trip=type_of_tour_trip,
-        holiday_idea=holiday_idea, client_Age_group=client_Age_group, include_in_tour=include_in_tour, meeting_point=meeting_point,
-        language=language, exclude_in_tour=exclude_in_tour)
-        booking1.save()
-        return redirect('index')
-    return render(request, 'booking_form01.html')
-
-
-def book_form2(request):
-
-
-    context = {
+    form = BookingForm()
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
         
+        if form.is_valid():            
+            form.save()
+            return redirect('confirmation')
+    context = {
+        'form':form
     }
-    return render(request, 'booking_form02.html', context)
+    return render(request, 'booking_form01.html', context)
 
 
 def contact(request):
@@ -136,4 +110,10 @@ def parliament(request):
     
 def discovered_paradise(request):
     return render(request, 'discovered_paradise.html')
+
+def confirmation(request):    
+    return render(request, 'confirmation.html')
+
+def request(request):    
+    return render(request, 'request.html')
 
