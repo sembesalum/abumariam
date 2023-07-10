@@ -54,7 +54,7 @@ def logout(request):
     auth.logout(request)
     return redirect('index')
 
-
+@login_required(login_url='login')
 def book_form(request):
     form = BookingForm()
     if request.method == 'POST':
@@ -116,4 +116,3 @@ def confirmation(request):
 
 def request(request):    
     return render(request, 'request.html')
-
