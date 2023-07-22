@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AbumariamTourAgency</title>
+    <title>Half-Day booking  | AbumariamTourAgency</title>
       <!-- Normalize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
       <!-- Bootstrap 4 CSS -->
@@ -32,7 +32,7 @@
   {% csrf_token %}
     <!-- Tittle -->
     <div class="tittle">
-      <h2>Booking Process</h2>
+      <h2>Booking Process for Half Day Tour</h2>
       <p>In order to use this service, you have to complete this booking process</p>
     </div>
     <!-- progressbar -->
@@ -61,7 +61,7 @@
        {{form.city}}
       </div>
       <div class="form-group fg_2"> 
-       {{form.sex}}
+        sex {{form.sex}}
       </div>
       <div class="form-group fg_2"> 
        {{form.maritalstatus}}
@@ -81,9 +81,6 @@
       </div>   
       <div class="form-group fg_2"> 
         {{form.type_of_client}}
-      </div> 
-      <div class="form-group fg_2"> 
-        {{form.type_of_tour_trip}}
       </div> 
       <div class="form-group fg_2"> 
         {{form.holiday_idea}}

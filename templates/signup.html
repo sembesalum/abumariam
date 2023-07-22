@@ -17,6 +17,10 @@
 		<div class="container-login100">
 			<div class="wrap-login100">			
 				<form method="POST" action="" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+					{% for message in messages %}
+					<h5 style="color:red">{{message}}</h5>
+					{% endfor %}
+					
 					{% csrf_token %}
 					<span class="login100-form-title">
 						Sign Up

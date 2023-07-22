@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>AbumariamTourAgency</title>
+    <title>Home | AbumariamTourAgency</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -47,11 +47,13 @@
     <div class="container-fluid bg-dark px-5 d-none d-lg-block">
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                {% for about in about_us %}
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
                     <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>Location, Zanzibar, Tanzania</small>
                     <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+255 763 946 396</small>
                     <small class="text-light"><i class="fa fa-envelope-open me-2"></i>Abumariamsafariisland01@gmail.com</small>
                 </div>
+                {% endfor %}
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
@@ -143,10 +145,11 @@
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown">ABUMARIAM SAFARI ISLAND</h1>
-                        <p class="fs-4 text-white mb-4 animated slideInDown">Come, relax and enjoy Tanzania.
-                            </p>
-                        
+                        {% for headers in header %}
+                        <h1 class="display-3 text-white mb-3 animated slideInDown">{{ headers.title }}</h1>
+                        <h3 class="fs-4 text-white mb-4 animated slideInDown">{{ headers.discription }}</h3>
+                        <p class="fs-4 text-white mb-4 animated slideInDown">{{ headers.description2 }}</p>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -180,6 +183,8 @@
             
         </div>
     </div>
+</div>
+
     <!-- Main Content End -->
 
 
@@ -188,21 +193,36 @@
         <div class="container">
             <div class="row g-5">
                 
-                <div class="col-lg-6 wow fadeInUp" class="image-slideshow">
-                    <div class="image fade">
-                    <img height="553px" width="548px" src="{% static 'img/27.jpg' %}" alt="Palm Trees">
+                <div class="col-lg-6 wow fadeInUp" class="image-slideshow" >
+                    <div class="image fade" >
+                    <img height="500px" width="400px" src="{% static 'img/bagamoyo.png' %}" alt="Palm Trees">
                     </div>
                     <div class="image fade">
-                        <img height="553px" width="548px" src="{% static 'img/arusha2.jpg' %}" alt="Palm Trees">
+                        <img height="500px" width="400px" src="{% static 'img/church.png' %}" alt="Palm Trees">
                     </div>
                     <div class="image fade">
-                        <img height="553px" width="548px" src="{% static 'img/dodoma.jpg' %}" alt="Palm Trees">
+                        <img height="500px" width="400px" src="{% static 'img/dar uni.png' %}" alt="Palm Trees">
                     </div>
                     <div class="image fade">
-                        <img height="553px" width="548px" src="{% static 'img/parliament1.jpg' %}" alt="Palm Trees">
+                        <img height="500px" width="400px" src="{% static 'img/diver.png' %}" alt="Palm Trees">
                     </div>
                     <div class="image fade">
-                        <img height="553px" width="548px" src="{% static 'img/stone-town.jpg' %}" alt="Palm Trees">
+                        <img height="500px" width="400px" src="{% static 'img/kondoa.png' %}" alt="Palm Trees">
+                    </div>
+                    <div class="image fade">
+                        <img height="500px" width="400px" src="{% static 'img/zanzibar.png' %}" alt="Palm Trees">
+                    </div>
+                    <div class="image fade">
+                        <img height="500px" width="400px" src="{% static 'img/zanzibar-1.png' %}" alt="Palm Trees">
+                    </div>
+                    <div class="image fade">
+                        <img height="500px" width="400px" src="{% static 'img/zanzibar-2.png' %}" alt="Palm Trees">
+                    </div>
+                    <div class="image fade">
+                        <img height="500px" width="400px" src="{% static 'img/zanzibar-3.png' %}" alt="Palm Trees">
+                    </div>
+                    <div class="image fade">
+                        <img height="500px" width="400px" src="{% static 'img/parliament.png' %}" alt="Palm Trees">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -225,6 +245,8 @@
             </div>
         </div>
     </div>
+</div>
+
     <!-- About End -->
 
 
@@ -265,29 +287,35 @@
                         <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
                             <i class="fa fa-phone-alt text-white"></i>
                         </div>
+                        {% for about in about_us %}
                         <div class="ms-3">
                             <h5 class="text-primary">Mobile</h5>
-                            <p class="mb-0">+255 763 946 396</p>
+                            <p class="mb-0">{{ about.phone_no }}</p>
                         </div>
+                        {% endfor %}
                     </div>
                     <div class="d-flex align-items-center">
                         <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
                             <i class="bi bi-whatsapp text-white"></i>
                         </div>
+                        {% for about in about_us %}
                         <div class="ms-3">
                             <h5 class="text-primary">WhatsApp</h5>
-                            <p class="mb-0">+255 655 530 695</p>
+                            <p class="mb-0">{{ about.whatsapp_no }}</p>
                         </div>
+                        {% endfor %}
                     </div>
                     <br>
                     <div class="d-flex align-items-center">
                         <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
                             <i class="fa fa-envelope-open text-white"></i>
                         </div>
+                        {% for about in about_us %}
                         <div class="ms-3">
                             <h5 class="text-primary">Email</h5>
-                            <p class="mb-0">Abumariamsafariisland01@mail.com</p>
+                            <p class="mb-0">{{ about.email }}</p>
                         </div>
+                        {% endfor %}
                     </div>                    
                 </div>
                 
@@ -335,86 +363,36 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Travel Guide</h6>
-                <h1 class="mb-5">Meet Our Guide</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">Travel Guider</h6>
+                <h1 class="mb-5">Meet Our Tour Guider</h1>
             </div>
             <div class="row g-4">
+                {% for guiders in tour_guides %}
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item">
+                    <div class="team-item bg-light">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{% static 'img/team-1.jpg' %}" alt="">
+                            <img class="img-fluid" src="{{ guiders.guider_image.url }}" alt="">
                         </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0">Majuto Mlowa</h5>
-                            <small>English and Poland</small>
-                            <br>
-                            <small>Cultural Boma Tour</small>
-                            <br>
-                            <small>0655530695 Whatsapp</small>
+                            <h5 class="mb-0">{{ guiders.full_name }}</h5>
+                            <small>{{ guiders.language }}</small>
+                                    <br>
+                                    <small>{{ guiders.interest }}</small>
+                                    <br>
+                                    <small>{{ guiders.contact }}</small>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="{% static 'img/team-2.jpg' %}" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Oliver Gully</h5>
-                            <small>English and Poland</small>
-                            <br>
-                            <small>Zanzibar safari & Study</small>
-                            <br>
-                            <small>0754095314 WhatsApp</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="{% static 'img/team-3.jpg' %}" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Emmanuel Zabroni</h5>
-                            <small>English and German</small>
-                            <br>
-                            <small>Zanzibar safari & Study</small>
-                            <br>
-                            <small>0787 863 339</small>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="{% static 'img/team-4.jpg' %}" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div> -->
+                {% endfor %}
+                
             </div>
         </div>
     </div>
@@ -428,14 +406,17 @@
                 <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
                 <h1 class="mb-5">Our Clients Say!!!</h1>
             </div>
+            
             <div class="owl-carousel testimonial-carousel position-relative">
+            {% for test in testimonial %}
                 <div class="testimonial-item bg-white text-center border p-4">
                     <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="{% static 'img/testimonial-1.jpg' %}" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">John Doe</h5>
-                    <p>New York, USA</p>
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <h5 class="mb-0">{{ test.full_name }}</h5>
+                    <p>{{ test.location }}</p>
+                    <p class="mb-0">{{ test.description }}</p>
                 </div>
-                <div class="testimonial-item bg-white text-center border p-4">
+            {% endfor %}
+                {% comment %} <div class="testimonial-item bg-white text-center border p-4">
                     <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="{% static 'img/testimonial-2.jpg' %}" style="width: 80px; height: 80px;">
                     <h5 class="mb-0">John Doe</h5>
                     <p>New York, USA</p>
@@ -452,36 +433,50 @@
                     <h5 class="mb-0">John Doe</h5>
                     <p>New York, USA</p>
                     <p class="mt-2 mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                </div> {% endcomment %}
+            </div>
+            
+        </div>
+    </div>
+    <!-- Testimonial End -->
+    <!-- CHAT -->
+    <div id='whatsapp-chat' class='hide'>
+        <div class='header-chat'>
+            <div class='head-home'><h3>Hello!</h3>
+                <p>Click one of our representatives below to chat on WhatsApp</p>
+            </div>
+            <div class='get-new hide'>
+                <div id='get-label'>
+
+                </div>
+                <div id='get-nama'>
+
                 </div>
             </div>
         </div>
-    </div>
-</div>
-</div>
-</div>
-    <!-- Testimonial End -->
-    <!-- CHAT -->
-<div id='whatsapp-chat' class='hide'>
-    <div class='header-chat'>
-    <div class='head-home'><h3>Hello!</h3>
-    <p>Click one of our representatives below to chat on WhatsApp</p></div>
-    <div class='get-new hide'><div id='get-label'></div><div id='get-nama'></div></div></div>
     <div class='home-chat'>
     <!-- Info Contact Start -->
     <a class='informasi' href='javascript:void' title='Chat Whatsapp'>
-    <div class='info-avatar'><img src='https://2.bp.blogspot.com/-y6xNA_8TpFo/XXWzkdYk0MI/AAAAAAAAA5s/RCzTBJ_FbMwVt5AEZKekwQqiDNqdNQJjgCLcBGAs/s70/supportmale.png'/></div>
-    <div class='info-chat'>
-    <span class='chat-label'>Support</span>
-    <span class='chat-nama'>Customer Service</span>
-    </div><span class='my-number'>+255 763 946 396</span>
+        <div class='info-avatar'><img src='https://2.bp.blogspot.com/-y6xNA_8TpFo/XXWzkdYk0MI/AAAAAAAAA5s/RCzTBJ_FbMwVt5AEZKekwQqiDNqdNQJjgCLcBGAs/s70/supportmale.png'/>
+        </div>
+            <div class='info-chat'>
+                <span class='chat-label'>Support</span>
+                <span class='chat-nama'>Customer Service</span>
+            </div>
+            <span class='my-number'>+255 763 946 396</span>
     </a>
     <!-- Info Contact End -->
     
-    <div class='blanter-msg'>Call us to <b>+255 763 946 396</b> from <i>0:00hs a 24:00hs</i></div></div>
+    <div class='blanter-msg'>Call us to <b>+255 763 946 396</b> from <i>0:00hs a 24:00hs</i>
+    </div>
+</div>
     <div class='start-chat hide'>
-    <div class='first-msg'><span>Hello! What can I do for you?</span></div>
+    <div class='first-msg'><span>Hello! What can I do for you?</span>
+    </div>
     <div class='blanter-msg'><textarea id='chat-input' placeholder='Write a response' maxlength='120' row='1'></textarea>
-    <a href='javascript:void;' id='send-it'>Send</a></div></div>
+    <a href='javascript:void;' id='send-it'>Send</a>
+</div>
+</div>
     <div id='get-number'></div><a class='close-chat' href='javascript:void'>×</a>
     </div>
     <a class='blantershow-chat' href='javascript:void' title='Show Chat'><i class='fab fa-whatsapp'></i>How can I help you?</a>
@@ -496,7 +491,7 @@
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">                
                 <a href=""  >                
-                    <img  src="{% static 'img/logo-2.png' %}" width="" height="140px">
+                    <img  src="{% static 'img/logo.png' %}" width="" height="190px">
                 </a> 
             </div>
             <div class="col-lg-3 col-md-6">
@@ -509,9 +504,11 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-white mb-3">Contact</h4>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Location, Zanzibar, Tanzania </p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+255 763 946 396</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>Abumariamsafariisland01@gmail.com</p>
+                {% for about in about_us %}
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{about.location}}</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{about.phone_no}}</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{about.email}}</p>
+                {% endfor %}
                 <div class="d-flex pt-2">
                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -522,32 +519,13 @@
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-white mb-3">Gallery</h4>
                 <div class="row g-2 pt-2">
+                    {% for img in gallery%}
                     <div class="col-4">
-                        <img class="img-fluid bg-light p-1" src="{% static 'img/package-1.jpg' %}" alt="">
+                        
+                        <img class="img-fluid bg-light p-1" src="{{img.image.url}}" alt="">
                     </div>
-                    <div class="col-4">
-                        <img class="img-fluid bg-light p-1" src="{% static 'img/package-2.jpg' %}" alt="">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid bg-light p-1" src="{% static 'img/package-3.jpg' %}" alt="">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid bg-light p-1" src="{% static 'img/package-2.jpg' %}" alt="">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid bg-light p-1" src="{% static 'img/package-3.jpg' %}" alt="">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid bg-light p-1" src="{% static 'img/package-1.jpg' %}" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h4 class="text-white mb-3">Newsletter</h4>
-                <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                <div class="position-relative mx-auto" style="max-width: 400px;">
-                    <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    {% endfor %}
+
                 </div>
             </div>
         </div>
@@ -556,14 +534,13 @@
         <div class="copyright">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" href="https://freewebsitecode.com">Your Site Name</a>, All Right Reserved.
+                    &copy; <a class="border-bottom" href="https://freewebsitecode.com">Abumariamsafariisland</a>, All Right Reserved.
                     
                     Designed By <a class="border-bottom" href="https://freewebsitecode.com">LevelsPro</a>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-menu">
                         <a href="">Home</a>
-                        <a href="">Cookies</a>
                         <a href="">Help</a>
                         <a href="">FQAs</a>
                     </div>

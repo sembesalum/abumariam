@@ -1,14 +1,38 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from .forms import BookingForm
+from .forms import BookingForm, BookingForm2, BookingForm3
 from django.contrib.auth.decorators import login_required
-# from .models import Booking, TourSite, Contact
+from .models import Contact, AboutUs, Request, Testimonial, Tour_guider, Half_day_tour, Full_day_tour, Holiday_Leisure_Study, Opener, Gallery, Video
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    header = Opener.objects.all()
+    about_us = AboutUs.objects.all()
+    testimonial = Testimonial.objects.all()
+    tour_guides = Tour_guider.objects.all()
+    gallery = Gallery.objects.all()
+
+    context = {
+        'header':header,
+        'about_us':about_us,
+        'testimonial':testimonial,
+        'tour_guides':tour_guides,
+        'gallery':gallery,
+    }
+
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+        send_info = Contact.objects.create(name=name, email=email, subject=subject, message=message)
+        send_info.save()
+        
+        return redirect('index')        
+    return render(request, 'index.html', context)
+
 
 def signup(request):
     if request.method == 'POST':
@@ -69,7 +93,45 @@ def book_form(request):
     return render(request, 'booking_form01.html', context)
 
 
+@login_required(login_url='login')
+def book_form2(request):
+    form = BookingForm2()
+    if request.method == 'POST':
+        form = BookingForm2(request.POST)
+        
+        if form.is_valid():            
+            form.save()
+            return redirect('confirmation')
+    context = {
+        'form':form
+    }
+    return render(request, 'booking_form02.html', context)
+
+@login_required(login_url='login')
+def book_form3(request):
+    form = BookingForm3()
+    if request.method == 'POST':
+        form = BookingForm3(request.POST)
+        
+        if form.is_valid():            
+            form.save()
+            return redirect('confirmation')
+    context = {
+        'form':form
+    }
+    return render(request, 'booking_form03.html', context)
+
+
 def contact(request):
+
+    about_us = AboutUs.objects.all()
+    header = Opener.objects.all()
+
+    context = {
+        'about_us': about_us,
+        'header': header
+    }
+
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
@@ -79,40 +141,162 @@ def contact(request):
         send_info.save()
         
         return redirect('contact')        
-    return render(request, 'contact.html')
+    return render(request, 'contact.html', context)
 
 def full_day(request):
-    return render(request, 'full_day.html')
+
+    about_us = AboutUs.objects.all()
+    header = Opener.objects.all()
+    tour_guides = Tour_guider.objects.all()
+    testimonial = Testimonial.objects.all()
+
+    context = {
+        'about_us': about_us,
+        'header': header,
+        'tour_guides': tour_guides,
+        'testimonial': testimonial
+    }
+
+    return render(request, 'full_day.html', context)
 
 def half_day(request):
-    return render(request, 'half_day.html')
+
+    about_us = AboutUs.objects.all()
+    header = Opener.objects.all()
+    tour_guides = Tour_guider.objects.all()
+    testimonial = Testimonial.objects.all()
+
+    context = {
+        'about_us': about_us,
+        'header': header,
+        'tour_guides': tour_guides,
+        'testimonial': testimonial
+    }
+
+    return render(request, 'half_day.html', context)
 
 def holiday_ideas(request):
-    return render(request, 'holiday_ideas.html')
+
+    about_us = AboutUs.objects.all()
+    header = Opener.objects.all()
+
+    context = {
+        'about_us': about_us,
+        'header': header
+    }
+
+    return render(request, 'holiday_ideas.html', context)
+
 
 def images(request):
-    return render(request, 'images.html')
+    gallery = Gallery.objects.all()
+    about_us = AboutUs.objects.all()
+    header = Opener.objects.all()
+
+    context = {
+        'gallery': gallery,
+        'about_us': about_us,
+        'header': header
+    }
+
+    return render(request, 'images.html', context)
+
 
 def leisure_activities(request):
-    return render(request, 'leisure_activities.html')
+    about_us = AboutUs.objects.all()
+    header = Opener.objects.all()
+
+    context = {
+        'about_us': about_us,
+        'header': header
+    }
+    return render(request, 'leisure_activities.html', context)
+
 
 def videos(request):
-    return render(request, 'videos.html')
+    videos = Video.objects.all()
+    about_us = AboutUs.objects.all()
+    header = Opener.objects.all()
+
+    context = {
+        'videos': videos,
+        'about_us': about_us,
+        'header': header
+    }
+
+    return render(request, 'videos.html', context)
+
 
 def zanzibar(request):
-    return render(request, 'zanzibar.html')
+    about_us = AboutUs.objects.all()
+    header = Opener.objects.all()
+
+    context = {
+        'about_us': about_us,
+        'header': header
+    }
+
+    return render(request, 'zanzibar.html', context)
 
 def not_found(request):
-    return render(request, '404.html')
+    about_us = AboutUs.objects.all()
+    header = Opener.objects.all()
+
+    context = {
+        'about_us': about_us,
+        'header': header
+    }
+    return render(request, '404.html', context)
+
 
 def parliament(request):
-    return render(request, 'parliament.html')
+    about_us = AboutUs.objects.all()
+    header = Opener.objects.all()
+
+    context = {
+        'about_us': about_us,
+        'header': header
+    }
+    return render(request, 'parliament.html', context)
+
     
 def discovered_paradise(request):
-    return render(request, 'discovered_paradise.html')
+    about_us = AboutUs.objects.all()
+    header = Opener.objects.all()
+
+    context = {
+        'about_us': about_us,
+        'header': header
+    }
+    return render(request, 'discovered_paradise.html', context)
+
 
 def confirmation(request):    
-    return render(request, 'confirmation.html')
+    about_us = AboutUs.objects.all()
+    context = {
+        'about_us': about_us
+    }
+    return render(request, 'confirmation.html', context)
+
 
 def request(request):    
-    return render(request, 'request.html')
+    about_us = AboutUs.objects.all()
+    header = Opener.objects.all()
+
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+        send_info = Request.objects.create(name=name, email=email, subject=subject, message=message)
+        send_info.save()
+
+        return redirect('confirmation') 
+
+    context = {
+        'about_us': about_us,
+        'header': header
+        }
+        
+
+    return render(request, 'request.html', context)

@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)3i84ye8d&^ata^8*v6fs%5@sc5@e%7t(gnoymz1ejr$23m)f$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -41,7 +41,6 @@ INSTALLED_APPS = [
 
     'base.apps.BaseConfig',
     'dashboard.apps.DashboardConfig',
-    'conversation.apps.ConversationConfig',
 ]
 
 
