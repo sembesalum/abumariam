@@ -5,7 +5,7 @@ from .forms import BookingForm, BookingForm2, BookingForm3
 from django.contrib.auth.decorators import login_required
 from .models import Contact, AboutUs, Request, Testimonial, Tour_guider, Half_day_tour, Full_day_tour, Holiday_Leisure_Study, Opener, Gallery, Video
 
-# Create your views here.
+# Create your views here. Create your views here.
 
 def index(request):
     header = Opener.objects.all()
